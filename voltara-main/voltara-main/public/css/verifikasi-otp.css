@@ -1,0 +1,387 @@
+/* ==============================
+   GLOBAL OTP PAGE
+============================== */
+
+.otp-page {
+  min-height: 100vh;
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3faf2;
+  font-family: "Inter", sans-serif;
+}
+
+.otp-card {
+  width: 100%;
+  max-width: 448px;
+  padding: 24px;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(213, 241, 108, 0.2),
+      transparent 32%
+    ),
+    #fff;
+  border-radius: 13px;
+  box-shadow: 0 15px 30px rgba(0, 40, 25, 0.12);
+}
+
+/* ==============================
+   TOP NAVIGATION
+============================== */
+
+.otp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.change-number,
+.electric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.change-number {
+  padding: 6px 12px;
+  background: #edf5eb;
+  color: #003c2b;
+}
+
+.change-number span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.electric-badge {
+  padding: 5px 11px;
+  background: #d5f16c;
+  color: #263a13;
+}
+
+/* ==============================
+   HEADING
+============================== */
+
+.otp-heading {
+  margin-bottom: 21px;
+}
+
+.security-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  background: #003c2b;
+  color: #d5f16c;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.otp-heading h1 {
+  margin-top: 9px;
+  color: #003c2b;
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+  font-weight: 700;
+}
+
+.otp-heading p {
+  margin-top: 7px;
+  color: #59645d;
+  font-size: 13px;
+}
+
+.otp-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  padding: 4px 9px;
+  border-radius: 8px;
+  background: #eaf2e9;
+  color: #003c2b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* ==============================
+   OTP INPUT
+============================== */
+
+.otp-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.otp-digit {
+  width: 100%;
+  height: 68px;
+  border: 2px solid #003c2b;
+  border-radius: 15px;
+  outline: none;
+  background: #edf5eb;
+  color: #003c2b;
+  text-align: center;
+  font-family: inherit;
+  font-size: 29px;
+  font-weight: 800;
+  caret-color: #003c2b;
+  transition: 0.2s;
+}
+
+.otp-digit:focus {
+  background: #f8fce9;
+  border-color: #145a3f;
+  box-shadow: 0 0 0 3px rgba(197, 243, 77, 0.25);
+}
+
+.otp-digit:not(:placeholder-shown) {
+  border-bottom: 5px solid #c5f34d;
+}
+
+/* ==============================
+   OTP STATUS
+============================== */
+
+.otp-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+  color: #7a857d;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.otp-status span {
+  color: #a3b0a5;
+}
+
+.otp-status.complete {
+  color: #003c2b;
+}
+
+.otp-status.complete span {
+  color: #145a3f;
+}
+
+/* ==============================
+   RESEND OTP
+============================== */
+
+.otp-resend {
+  margin-top: 23px;
+  text-align: center;
+}
+
+.otp-resend p {
+  color: #59645d;
+  font-size: 13px;
+}
+
+.otp-resend strong {
+  color: #003c2b;
+  font-weight: 800;
+}
+
+.resend-button {
+  margin-top: 7px;
+  border: none;
+  background: transparent;
+  color: #003c2b;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.resend-button:disabled {
+  display: none;
+}
+
+.resend-button:not(:disabled) {
+  text-decoration: underline;
+}
+
+/* ==============================
+   SMS FALLBACK
+============================== */
+
+.sms-fallback {
+  display: block;
+  margin: 9px auto 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #003c2b;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ==============================
+   CASH INFORMATION
+============================== */
+
+.otp-cash-info {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 27px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #edf5eb;
+}
+
+.cash-icon {
+  width: 33px;
+  height: 33px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #fff;
+  color: #003c2b;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.cash-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.cash-text strong {
+  display: block;
+  color: #003c2b;
+  font-size: 11px;
+}
+
+.cash-text p {
+  color: #59645d;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.cash-badge {
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: #003c2b;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ==============================
+   VERIFY BUTTON
+============================== */
+
+.otp-submit {
+  width: 100%;
+  height: 49px;
+  margin-top: 24px;
+  border: none;
+  border-radius: 12px;
+  background: #003c2b;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 40, 25, 0.13);
+  transition: 0.2s;
+}
+
+.otp-submit:hover {
+  background: #145a3f;
+  transform: translateY(-1px);
+}
+
+/* ==============================
+   SECURITY NOTE
+============================== */
+
+.otp-security-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 12px;
+  color: #59645d;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.otp-security-note span {
+  color: #003c2b;
+  font-size: 14px;
+}
+
+.otp-emission {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 22px;
+  color: #59645d;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.otp-emission span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c5f34d;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 480px) {
+  .otp-page {
+    padding: 18px 15px;
+  }
+
+  .otp-card {
+    padding: 21px 18px;
+  }
+
+  .otp-digit {
+    height: 61px;
+    font-size: 26px;
+    border-radius: 12px;
+  }
+
+  .otp-heading h1 {
+    font-size: 19px;
+  }
+
+  .otp-heading p {
+    font-size: 12px;
+  }
+
+  .otp-security-note {
+    font-size: 9px;
+  }
+
+  .otp-emission {
+    font-size: 9px;
+  }
+}

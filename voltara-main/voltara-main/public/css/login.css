@@ -1,0 +1,548 @@
+/* ==============================
+   NAVBAR LOGIN
+============================== */
+
+.nav-register {
+  font-size: 12px;
+  font-weight: 600;
+  color: #003c2b;
+}
+
+.login-navbar .nav-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #c5f34d;
+  color: #003c2b;
+  padding: 9px 18px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.login-navbar .nav-login:hover {
+  background: #b6e83c;
+}
+/* ==============================
+   LOGIN PAGE
+============================== */
+
+.login-page {
+  min-height: calc(100vh - 160px);
+  padding: 65px 4% 70px;
+  background: #f3faf2;
+}
+
+.login-container {
+  max-width: 1180px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.25fr 0.9fr;
+  align-items: stretch;
+  gap: 40px;
+}
+
+/* ==============================
+   LEFT INTRO
+============================== */
+
+.login-intro {
+  background: linear-gradient(120deg, #edf6ec 55%, #e5f4bd);
+  border-radius: 25px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-content {
+  width: 100%;
+}
+
+.intro-badge,
+.form-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #d5f16c;
+  color: #193b23;
+  border-radius: 20px;
+  padding: 6px 13px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.login-intro h1 {
+  margin-top: 24px;
+  font-size: clamp(27px, 3.2vw, 40px);
+  line-height: 1.25;
+  letter-spacing: -1.5px;
+  color: #003c2b;
+  font-weight: 800;
+}
+
+.intro-description {
+  margin-top: 5px;
+  color: #48554c;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ==============================
+   BENEFIT CARDS
+============================== */
+
+.intro-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.benefit-card {
+  background: #fff;
+  border-radius: 17px;
+  padding: 9px;
+  min-height: 108px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.benefit-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-size: 17px;
+  color: #17372b;
+}
+
+.benefit-icon.lime {
+  background: #d5f16c;
+}
+
+.benefit-icon.mint {
+  background: #b5ead5;
+}
+
+.benefit-card strong {
+  font-size: 12px;
+  color: #003c2b;
+}
+
+.benefit-card p {
+  font-size: 12px;
+  color: #59665c;
+  line-height: 1.3;
+}
+
+/* ==============================
+   VEHICLE IMAGE
+============================== */
+
+.intro-image {
+  position: relative;
+  margin-top: 60px;
+  height: 256px;
+  border-radius: 17px;
+  overflow: visible;
+}
+
+.intro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 17px;
+  display: block;
+}
+
+.image-top-badge {
+  position: absolute;
+  top: -14px;
+  right: 15px;
+  background: #003c2b;
+  color: #d5f16c;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.image-bottom-badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: white;
+  color: #003c2b;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* ==============================
+   RIGHT FORM CARD
+============================== */
+
+.login-form-section {
+  background: #fff;
+  border-radius: 25px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-header h2 {
+  margin-top: 12px;
+  font-size: 29px;
+  letter-spacing: -1px;
+  color: #003c2b;
+}
+
+.login-form-header p {
+  margin-top: 5px;
+  font-size: 15px;
+  color: #59645d;
+  line-height: 1.6;
+}
+
+/* ==============================
+   FORM
+============================== */
+
+.otp-form {
+  margin-top: 23px;
+}
+
+.form-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.form-label-row label {
+  color: #003c2b;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.form-label-row span {
+  font-size: 13px;
+  color: #59645d;
+}
+
+/* Phone input */
+
+.phone-input {
+  height: 56px;
+  background: #eef5ed;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 7px;
+}
+
+.country-flag {
+  font-size: 19px;
+}
+
+.phone-input select {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  color: #253b30;
+  cursor: pointer;
+}
+
+.phone-input input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-left: 1px solid #d7e2d5;
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #253b30;
+}
+
+.phone-check {
+  font-size: 19px;
+  font-weight: 800;
+  color: #628500;
+}
+
+/* Phone hint */
+
+.phone-hint {
+  display: flex;
+  gap: 7px;
+  margin-top: 9px;
+  color: #657168;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.phone-hint span {
+  color: #668500;
+  font-weight: 800;
+}
+
+/* ==============================
+   OTP METHOD
+============================== */
+
+.otp-method {
+  margin-top: 18px;
+}
+
+.method-title {
+  font-size: 13px;
+  color: #263a2e;
+}
+
+.method-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 7px;
+}
+
+.method-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px;
+  border-radius: 13px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.method-option.selected {
+  background: #eef6ed;
+}
+
+.method-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.method-icon {
+  width: 33px;
+  height: 33px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #145b3d;
+  color: white;
+  border-radius: 9px;
+  font-size: 17px;
+}
+
+.sms-icon {
+  background: #edf1eb;
+  color: #758078;
+}
+
+.method-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.method-text strong {
+  font-size: 12px;
+  color: #003c2b;
+}
+
+.method-text small {
+  font-size: 10px;
+  color: #668500;
+  font-weight: 700;
+}
+
+.method-option:has(input:checked) {
+  background: #eef6ed;
+}
+
+.method-option:has(input:focus-visible) {
+  outline: 2px solid #145b3d;
+}
+
+/* ==============================
+   PAYMENT INFO
+============================== */
+
+.payment-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 13px;
+  background: #eaf2e9;
+}
+
+.payment-icon {
+  width: 35px;
+  height: 35px;
+  background: #fff;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #003c2b;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.payment-info strong {
+  font-size: 11px;
+  color: #003c2b;
+}
+
+.payment-info p {
+  font-size: 12px;
+  line-height: 1.35;
+  color: #59645d;
+}
+
+/* ==============================
+   SUBMIT BUTTON
+============================== */
+
+.otp-submit {
+  width: 100%;
+  margin-top: 16px;
+  height: 51px;
+  background: #003c2b;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(0, 40, 25, 0.15);
+  transition: 0.2s;
+}
+
+.otp-submit:hover {
+  background: #145b3d;
+}
+
+/* ==============================
+   TERMS
+============================== */
+
+.form-terms {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.form-terms p {
+  font-size: 12px;
+  color: #58645c;
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+
+.form-terms strong {
+  color: #003c2b;
+}
+
+.form-terms a {
+  color: #59665d;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 1000px) {
+  .login-container {
+    grid-template-columns: 1fr 0.9fr;
+    gap: 20px;
+  }
+
+  .login-intro,
+  .login-form-section {
+    padding: 25px;
+  }
+
+  .login-intro h1 {
+    font-size: 29px;
+  }
+}
+
+@media (max-width: 750px) {
+  .login-page {
+    padding: 30px 5%;
+  }
+
+  .login-container {
+    grid-template-columns: 1fr;
+  }
+
+  .login-intro,
+  .login-form-section {
+    padding: 25px;
+  }
+
+  .login-intro h1 {
+    font-size: 30px;
+  }
+
+  .intro-image {
+    height: 230px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-navbar .nav-register {
+    display: none;
+  }
+
+  .intro-benefits {
+    gap: 6px;
+  }
+
+  .benefit-card {
+    padding: 8px;
+  }
+
+  .benefit-card strong {
+    font-size: 10px;
+  }
+
+  .benefit-card p {
+    font-size: 10px;
+  }
+
+  .method-options {
+    gap: 5px;
+  }
+
+  .method-option {
+    padding: 7px 5px;
+    gap: 5px;
+  }
+
+  .method-text strong {
+    font-size: 10px;
+  }
+
+  .method-text small {
+    font-size: 9px;
+  }
+}
