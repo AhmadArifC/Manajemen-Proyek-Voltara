@@ -31,7 +31,12 @@ if (session_status() === PHP_SESSION_NONE) {
 // KONFIGURASI DASAR
 // ========================================
 
-$base       = '/voltara-app'; // Nama folder proyek di htdocs
+// ========================================
+// KONFIGURASI DASAR
+// ========================================
+
+// Root project untuk PHP Built-in Server
+$base = '';
 
 $pageTitle  = $pageTitle  ?? 'VOLTARA';
 $pageCss    = $pageCss    ?? 'landing.css';
@@ -41,6 +46,8 @@ $content    = $content    ?? '';
 
 $showHeader = $showHeader ?? true;
 $showFooter = $showFooter ?? true;
+$pageJs     = $pageJs     ?? '';
+$includeMap = $includeMap ?? false;
 
 ?>
 
@@ -64,13 +71,21 @@ $showFooter = $showFooter ?? true;
           rel="stylesheet">
 
     <!-- CSS GLOBAL -->
-    <link rel="stylesheet"
-          href="<?= $base ?>/public/css/layout.css">
+<link rel="stylesheet"
+      href="<?= $base ?>/public/css/layout.css">
 
-    <!-- CSS KHUSUS HALAMAN -->
-    <link rel="stylesheet"
-          href="<?= $base ?>/public/css/<?= htmlspecialchars($pageCss) ?>">
-
+<!-- CSS KHUSUS HALAMAN -->
+<?php if (!empty($pageCss)): ?>
+<link rel="stylesheet"
+      href="<?= $base ?>/public/css/<?= htmlspecialchars($pageCss, ENT_QUOTES, 'UTF-8') ?>">
+<?php endif; ?>
+    <!-- CSS LEAFLET UNTUK PETA -->
+    <?php if ($includeMap): ?>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+    <?php endif; ?>
 </head>
 
 <body>
@@ -248,6 +263,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
+<!-- ========================================
+     JAVASCRIPT LEAFLET UNTUK PETA
+========================================= -->
+
+<?php if ($includeMap): ?>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<?php endif; ?>
+
+
+<!-- ========================================
+     JAVASCRIPT KHUSUS HALAMAN
+========================================= -->
+
+<?php if (!empty($pageJs)): ?>
+    <script src="<?= $base ?>/public/js/<?= htmlspecialchars($pageJs, ENT_QUOTES, 'UTF-8') ?>"></script>
+<?php endif; ?>
+
 
 </body>
 </html>
