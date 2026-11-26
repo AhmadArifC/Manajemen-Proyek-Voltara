@@ -44,11 +44,15 @@ if ($isPublicPage || $isLoginPage) {
         ],
         'pesan' => [
             'Pesan Kendaraan',
-            $base . '/views/pages/order.php'
+            $base . '/views/pages/penumpang/pesan_kendaraan.php'
         ],
         'riwayat' => [
             'Riwayat Pemesanan',
             $base . '/views/pages/riwayat.php'
+        ],
+        'mode' => [
+            'Mode Pengemudi',
+            $base . '/views/pages/driver.php'
         ],
     ];
 }

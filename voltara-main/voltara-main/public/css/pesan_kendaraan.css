@@ -219,6 +219,7 @@
     width: 88px;
     height: 62px;
     object-fit: contain;
+    border-radius: 10px;
 }
 
 .vehicle-text {

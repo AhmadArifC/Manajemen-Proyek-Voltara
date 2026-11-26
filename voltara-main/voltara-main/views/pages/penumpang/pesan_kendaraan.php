@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 $pageTitle  = 'VOLTARA - Pesan Kendaraan';
 $pageCss    = 'pesan_kendaraan.css';
 $pageJs     = 'penumpang/pesan_kendaraan.js';
-$activePage = 'pesan_kendaraan';
+$activePage = 'pesan';
 
 $showHeader = true;
 $showFooter = true;
@@ -155,9 +155,10 @@ ob_start();
             <div class="vehicle-option">
 
                 <img
-                    src="/voltara-app/public/img/voltara-car.svg"
-                    alt="VOLTARA CAR"
-                >
+    src="/public/images/zenix.png"
+    alt="Toyota Innova Zenix"
+    class="vehicle-image"
+>
 
                 <div class="vehicle-text">
 
