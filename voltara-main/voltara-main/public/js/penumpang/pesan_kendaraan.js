@@ -6,10 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const locateBtn = document.getElementById('locateBtn');
     const swapBtn = document.getElementById('swapBtn');
 
-
-    // =========================
+    // =====================================
     // TUKAR LOKASI
-    // =========================
+    // =====================================
 
     if (swapBtn && pickup && destination) {
 
@@ -25,9 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // =========================
+    // =====================================
     // GPS / LOKASI PENGGUNA
-    // =========================
+    // =====================================
+
+    let map = null;
 
     if (locateBtn && pickup) {
 
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     pickup.value = latitude + ', ' + longitude;
 
-                    if (typeof map !== 'undefined') {
+                    if (map) {
                         map.setView([latitude, longitude], 15);
                     }
 
@@ -80,17 +81,122 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // =========================
+    // =====================================
+    // PENAWARAN HARGA
+    // =====================================
+
+    const offerPrice = document.getElementById('offerPrice');
+    const minusOffer = document.getElementById('minusOffer');
+    const plusOffer = document.getElementById('plusOffer');
+    const offerStatus = document.getElementById('offerStatus');
+    const submitOffer = document.getElementById('submitOffer');
+    const offerMessage = document.getElementById('offerMessage');
+
+    if (
+        offerPrice &&
+        minusOffer &&
+        plusOffer &&
+        offerStatus
+    ) {
+
+        const MIN_PRICE = 35000;
+        const STEP_PRICE = 5000;
+
+        let currentPrice = 45000;
+
+        function formatRupiah(price) {
+
+            return 'Rp' + price.toLocaleString('id-ID');
+
+        }
+
+        function updateOffer() {
+
+            offerPrice.textContent = formatRupiah(currentPrice);
+
+            // Jika harga mencapai batas minimum
+            if (currentPrice <= MIN_PRICE) {
+
+                currentPrice = MIN_PRICE;
+
+                offerPrice.textContent = formatRupiah(currentPrice);
+
+                offerStatus.textContent = 'Tarif minimum tercapai';
+
+                offerStatus.classList.add('minimum-reached');
+
+                minusOffer.disabled = true;
+
+            } else {
+
+                offerStatus.textContent = 'Rekomendasi: Rp45.000';
+
+                offerStatus.classList.remove('minimum-reached');
+
+                minusOffer.disabled = false;
+
+            }
+
+        }
+
+        // KURANGI HARGA
+        minusOffer.addEventListener('click', function () {
+
+            if (currentPrice > MIN_PRICE) {
+
+                currentPrice -= STEP_PRICE;
+
+                if (currentPrice < MIN_PRICE) {
+                    currentPrice = MIN_PRICE;
+                }
+
+                updateOffer();
+
+            }
+
+        });
+
+
+        // TAMBAH HARGA
+        plusOffer.addEventListener('click', function () {
+
+            currentPrice += STEP_PRICE;
+
+            updateOffer();
+
+        });
+
+
+        // AJUKAN PENAWARAN (SIMULASI FRONT-END)
+        if (submitOffer && offerMessage) {
+
+            submitOffer.addEventListener('click', function () {
+
+                offerMessage.textContent =
+                    'Penawaran sebesar ' +
+                    formatRupiah(currentPrice) +
+                    ' berhasil disiapkan. ';
+
+            });
+
+        }
+
+        // TAMPILKAN HARGA AWAL
+        updateOffer();
+
+    }
+
+
+    // =====================================
     // PETA LEAFLET
-    // =========================
+    // =====================================
 
     if (typeof L !== 'undefined' && document.getElementById('map')) {
 
-        const map = L.map('map').setView(
+        map = L.map('map').setView(
             [-7.548, 112.235],
             14
         );
-
 
         L.tileLayer(
             'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -101,8 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ).addTo(map);
 
 
-        // MARKER DRIVER SIMULASI
-
+        // DRIVER SIMULASI
         const drivers = [
 
             {
@@ -138,16 +243,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         // MARKER TITIK JEMPUT SIMULASI
+        L.marker([-7.548, 112.235])
 
-        const pickupMarker = L.marker(
-            [-7.548, 112.235]
-        ).addTo(map);
+            .addTo(map)
 
-        pickupMarker.bindPopup('Titik Jemput');
+            .bindPopup('Titik Jemput');
 
 
         // RUTE SIMULASI
-
         L.polyline(
             [
                 [-7.551, 112.229],
@@ -161,10 +264,11 @@ document.addEventListener('DOMContentLoaded', function () {
         ).addTo(map);
 
 
-        // MENCEGAH MAP TIDAK SESUAI UKURAN
-
+        // PERBAIKAN UKURAN PETA
         setTimeout(function () {
+
             map.invalidateSize();
+
         }, 300);
 
     }

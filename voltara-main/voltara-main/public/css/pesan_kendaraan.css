@@ -346,6 +346,153 @@
 }
 
 
+
+/* =========================================
+   KARTU PENAWARAN HARGA
+========================================= */
+
+.offer-card {
+    padding: 28px 24px 24px;
+}
+
+.offer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.offer-header h3 {
+    font-size: 15px;
+    color: var(--ink);
+    margin: 0;
+}
+
+.recommendation {
+    background: #e2e7df;
+    color: #455149;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.recommendation.minimum-reached {
+    background: #f4777c;
+    color: #6e1017;
+}
+
+.offer-box {
+    background: #f1f5ec;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.price-adjust {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #e0e5dc;
+    color: var(--ink);
+    font-size: 26px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.price-adjust:hover {
+    background: var(--mint);
+}
+
+.price-adjust:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.price-display {
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.price-display label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #46544b;
+    margin-bottom: 3px;
+}
+
+.price-display strong {
+    font-size: clamp(25px, 4vw, 34px);
+    color: var(--deep);
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.offer-submit {
+    width: 100%;
+    border: none;
+    border-radius: 9px;
+    padding: 12px;
+    margin-top: 10px;
+    background: var(--deep);
+    color: var(--lime);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.offer-submit:hover {
+    background: var(--forest);
+}
+
+.offer-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 10px 0 0;
+    text-align: center;
+}
+
+
+/* RESPONSIVE KARTU PENAWARAN */
+
+@media (max-width: 600px) {
+
+    .offer-card {
+        padding: 18px;
+    }
+
+    .offer-header {
+        align-items: flex-start;
+    }
+
+    .offer-box {
+        padding: 12px 8px;
+        gap: 8px;
+    }
+
+    .price-adjust {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+    }
+
+    .price-display strong {
+        font-size: 25px;
+    }
+
+}
+
+
+
 /* RESPONSIVE */
 
 @media (max-width: 1000px) {

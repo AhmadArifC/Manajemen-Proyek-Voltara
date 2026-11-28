@@ -16,13 +16,16 @@ $includeMap = true;
 $pickup = '';
 $destination = '';
 $message = '';
+$showOffer = true;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $pickup = trim($_POST['pickup'] ?? '');
     $destination = trim($_POST['destination'] ?? '');
 
     if ($pickup !== '' && $destination !== '') {
-        $message = 'Lokasi jemput dan tujuan berhasil diisi.';
+        $showOffer = true;
+        $message = 'Lokasi berhasil dimasukkan. Silakan tentukan nominal penawaran.';
     } else {
         $message = 'Titik jemput dan tujuan wajib diisi.';
     }
@@ -45,10 +48,7 @@ ob_start();
 
             <div class="card-heading-row">
                 <h1>Mau ke mana hari ini?</h1>
-
-                <span class="car-icon">
-                    🚘
-                </span>
+                <span class="car-icon">🚘</span>
             </div>
 
             <p class="intro">
@@ -93,9 +93,7 @@ ob_start();
                 <!-- TUJUAN -->
                 <div class="location-row destination-row">
 
-                    <span class="route-flag">
-                        ⚑
-                    </span>
+                    <span class="route-flag">⚑</span>
 
                     <label for="destination">
                         TUJUAN ANTAR
@@ -127,11 +125,9 @@ ob_start();
                 </button>
 
                 <?php if ($message !== ''): ?>
-
                     <div class="form-message">
                         <?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8') ?>
                     </div>
-
                 <?php endif; ?>
 
             </form>
@@ -155,26 +151,22 @@ ob_start();
             <div class="vehicle-option">
 
                 <img
-    src="/public/images/zenix.png"
-    alt="Toyota Innova Zenix"
-    class="vehicle-image"
->
+                    src="../../../public/images/zenix.png"
+                    alt="Toyota Innova Zenix"
+                    class="vehicle-image"
+                >
 
                 <div class="vehicle-text">
 
                     <div class="vehicle-title">
-
                         <strong>VOLTARA CAR</strong>
 
                         <span class="premium">
                             PREMIUM
                         </span>
-
                     </div>
 
-                    <small>
-                        Toyota Innova Zenix EV
-                    </small>
+                    <small>Toyota Innova Zenix EV</small>
 
                     <span class="capacity">
                         Kapasitas 4–6 Org
@@ -185,6 +177,73 @@ ob_start();
             </div>
 
         </div>
+
+
+        <!-- KARTU PENAWARAN -->
+        <?php if ($showOffer): ?>
+
+        <div class="booking-card offer-card">
+
+            <div class="offer-header">
+
+                <h3>Tentukan Nominal Penawaranmu</h3>
+
+                <span
+                    class="recommendation"
+                    id="offerStatus"
+                >
+                    Rekomendasi: Rp45.000
+                </span>
+
+            </div>
+
+            <div class="offer-box">
+
+                <button
+                    type="button"
+                    id="minusOffer"
+                    class="price-adjust"
+                    aria-label="Kurangi penawaran"
+                >
+                    −
+                </button>
+
+                <div class="price-display">
+
+                    <label>NOMINAL TAWARAN ANDA</label>
+
+                    <strong id="offerPrice">
+                        Rp45.000
+                    </strong>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="plusOffer"
+                    class="price-adjust"
+                    aria-label="Tambah penawaran"
+                >
+                    +
+                </button>
+
+            </div>
+
+            <button
+                type="button"
+                id="submitOffer"
+                class="offer-submit"
+            >
+                CARI TAWARAN
+            </button>
+
+            <p class="offer-note" id="offerMessage">
+                Silakan ajukan nominal penawaran kepada pengemudi.
+            </p>
+
+        </div>
+
+        <?php endif; ?>
 
     </section>
 
@@ -215,9 +274,7 @@ ob_start();
 
             <div class="info-card">
 
-                <span class="info-icon shield">
-                    ♧
-                </span>
+                <span class="info-icon shield">♧</span>
 
                 <div>
 
@@ -234,12 +291,9 @@ ob_start();
 
             </div>
 
-
             <div class="info-card">
 
-                <span class="info-icon deal">
-                    ↙
-                </span>
+                <span class="info-icon deal">↙</span>
 
                 <div>
 
