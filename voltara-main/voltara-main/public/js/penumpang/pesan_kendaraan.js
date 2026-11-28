@@ -393,6 +393,17 @@ function chooseDriver(index) {
     window.location.href =
         'otw.php?' + params.toString();
 
+
+    selectedDriverData = drivers[index];
+
+    // Simpan driver yang dipilih secara simulasi
+    // dan pindah ke halaman perjalanan
+
+    window.location.href =
+        'perjalanan.php';
+
+
+
 }
 
 
