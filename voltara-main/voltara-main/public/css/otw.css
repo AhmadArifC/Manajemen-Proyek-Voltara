@@ -1,0 +1,455 @@
+
+:root {
+    --forest: #164e3b;
+    --deep: #073c2d;
+    --lime: #c5f34a;
+    --mint: #b5eed0;
+    --bg: #f5faf1;
+    --ink: #1f2923;
+    --muted: #647168;
+}
+
+.trip-page {
+    display: grid;
+    grid-template-columns: minmax(420px, 40%) minmax(500px, 1fr);
+    gap: 24px;
+    padding: 24px 3.2%;
+    align-items: stretch;
+}
+
+.trip-left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.trip-card,
+.cancel-trip-card,
+.trip-map-card {
+    background: white;
+    border: 1px solid #edf2e9;
+    border-radius: 16px;
+    box-shadow: 0 2px 5px #163d2010;
+}
+
+.trip-card {
+    padding: 16px;
+}
+
+/* PROFIL DRIVER */
+
+.driver-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.driver-photo {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    display: grid;
+    place-items: center;
+    background: var(--forest);
+    color: var(--lime);
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.driver-information {
+    flex: 1;
+    min-width: 0;
+}
+
+.driver-name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.driver-name-row strong {
+    font-size: 16px;
+    color: var(--ink);
+}
+
+.verified-driver {
+    background: var(--mint);
+    color: var(--deep);
+    border-radius: 20px;
+    font-size: 9px;
+    padding: 3px 6px;
+}
+
+.driver-information small {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+}
+
+.vehicle-plate {
+    background: #e5eadf;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.vehicle-plate strong {
+    display: block;
+    font-size: 17px;
+    color: var(--ink);
+}
+
+.vehicle-plate small {
+    display: block;
+    font-size: 9px;
+    color: var(--forest);
+    font-weight: bold;
+}
+
+/* KONTAK */
+
+.driver-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.driver-contact {
+    text-decoration: none;
+    text-align: center;
+    padding: 11px;
+    border-radius: 9px;
+    font-size: 12px;
+    color: white;
+    background: var(--deep);
+}
+
+.driver-contact:hover {
+    background: var(--forest);
+}
+
+/* DETAIL */
+
+.trip-detail {
+    margin-top: 24px;
+}
+
+.trip-detail h2 {
+    font-size: 20px;
+    margin: 0 0 18px;
+    color: var(--ink);
+}
+
+/* RINGKASAN */
+
+.trip-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--lime);
+    padding: 14px;
+    border-radius: 12px;
+}
+
+.summary-icon {
+    font-size: 20px;
+}
+
+.summary-description {
+    flex: 1;
+}
+
+.summary-description strong {
+    display: block;
+    font-size: 13px;
+}
+
+.summary-description small,
+.summary-data small {
+    display: block;
+    font-size: 10px;
+    color: #455149;
+    margin-top: 3px;
+}
+
+.summary-data {
+    text-align: center;
+    min-width: 48px;
+}
+
+.summary-data strong {
+    font-size: 13px;
+}
+
+/* LOKASI */
+
+.trip-location {
+    display: flex;
+    gap: 12px;
+    position: relative;
+    padding: 18px 4px;
+}
+
+.trip-location:first-of-type::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 50px;
+    height: 70px;
+    border-left: 2px solid #b6c5b7;
+}
+
+.location-symbol {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+}
+
+.pickup-symbol {
+    background: var(--lime);
+    color: var(--deep);
+}
+
+.destination-symbol {
+    background: var(--deep);
+    color: white;
+}
+
+.location-information {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.location-information small {
+    font-size: 10px;
+    font-weight: bold;
+    color: #536159;
+}
+
+.location-information strong {
+    font-size: 17px;
+    color: var(--ink);
+}
+
+.location-information span {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* PENUMPANG DAN ARMADA */
+
+.trip-extra {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.extra-information {
+    background: #f1f5ec;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.extra-information small {
+    display: block;
+    font-size: 10px;
+    color: #536159;
+}
+
+.extra-information strong {
+    display: block;
+    font-size: 12px;
+    margin-top: 4px;
+    color: var(--ink);
+}
+
+/* BATAL */
+
+.cancel-trip-card {
+    padding: 16px;
+}
+
+.cancel-trip-button {
+    width: 100%;
+    padding: 13px;
+    background: #ffe8e6;
+    color: #d41414;
+    border: 0;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancel-trip-button:hover {
+    background: #ffd6d3;
+}
+
+.cancel-trip-card p {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    margin: 10px 0 0;
+}
+
+/* PETA */
+
+.trip-right {
+    min-width: 0;
+}
+
+.trip-map-card {
+    height: 100%;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+    background: #e5f5e7;
+}
+
+#tripMap {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+}
+
+.map-gps-status {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    z-index: 500;
+    background: white;
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px #172d2615;
+}
+
+.gps-dot {
+    width: 10px;
+    height: 10px;
+    background: #9ad438;
+    border-radius: 50%;
+}
+
+.zero-emission {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    z-index: 500;
+    background: var(--deep);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* INFORMASI ECO */
+
+.eco-information {
+    position: absolute;
+    bottom: 24px;
+    left: 5%;
+    right: 5%;
+    z-index: 500;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: white;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px #163d2015;
+}
+
+.eco-information-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    display: grid;
+    place-items: center;
+    background: var(--mint);
+    color: var(--deep);
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.eco-information strong {
+    font-size: 12px;
+    color: var(--ink);
+}
+
+.eco-information p {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 4px 0 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .trip-page {
+        grid-template-columns: 1fr;
+    }
+
+    .trip-map-card {
+        min-height: 500px;
+    }
+
+    #tripMap {
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .trip-page {
+        padding: 16px;
+    }
+
+    .driver-profile {
+        flex-wrap: wrap;
+    }
+
+    .driver-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .trip-summary {
+        flex-wrap: wrap;
+    }
+
+    .trip-map-card,
+    #tripMap {
+        min-height: 400px;
+    }
+
+    .map-gps-status {
+        font-size: 10px;
+        left: 10px;
+        top: 10px;
+    }
+
+    .zero-emission {
+        top: 65px;
+        right: 10px;
+    }
+
+    .eco-information {
+        bottom: 12px;
+        left: 10px;
+        right: 10px;
+    }
+}

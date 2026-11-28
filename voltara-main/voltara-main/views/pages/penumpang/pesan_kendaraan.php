@@ -19,13 +19,11 @@ $message = '';
 $showOffer = true;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     $pickup = trim($_POST['pickup'] ?? '');
     $destination = trim($_POST['destination'] ?? '');
 
     if ($pickup !== '' && $destination !== '') {
-        $showOffer = true;
-        $message = 'Lokasi berhasil dimasukkan. Silakan tentukan nominal penawaran.';
+        $message = 'Lokasi berhasil dimasukkan.';
     } else {
         $message = 'Titik jemput dan tujuan wajib diisi.';
     }
@@ -39,7 +37,7 @@ ob_start();
     <!-- BAGIAN KIRI -->
     <section class="booking-left">
 
-        <!-- FORM PEMESANAN -->
+        <!-- FORM LOKASI -->
         <div class="booking-card main-form-card">
 
             <span class="section-label">
@@ -65,9 +63,7 @@ ob_start();
 
                     <span class="route-dot"></span>
 
-                    <label for="pickup">
-                        TITIK JEMPUT
-                    </label>
+                    <label for="pickup">TITIK JEMPUT</label>
 
                     <input
                         type="text"
@@ -95,9 +91,7 @@ ob_start();
 
                     <span class="route-flag">⚑</span>
 
-                    <label for="destination">
-                        TUJUAN ANTAR
-                    </label>
+                    <label for="destination">TUJUAN ANTAR</label>
 
                     <input
                         type="text"
@@ -179,9 +173,7 @@ ob_start();
         </div>
 
 
-        <!-- KARTU PENAWARAN -->
-        <?php if ($showOffer): ?>
-
+        <!-- KARTU PENAWARAN HARGA -->
         <div class="booking-card offer-card">
 
             <div class="offer-header">
@@ -212,9 +204,7 @@ ob_start();
 
                     <label>NOMINAL TAWARAN ANDA</label>
 
-                    <strong id="offerPrice">
-                        Rp45.000
-                    </strong>
+                    <strong id="offerPrice">Rp45.000</strong>
 
                 </div>
 
@@ -243,7 +233,186 @@ ob_start();
 
         </div>
 
-        <?php endif; ?>
+
+        <!-- KARTU STATUS PENCARIAN -->
+        <div
+            class="booking-card waiting-card"
+            id="waitingCard"
+            hidden
+        >
+
+            <div class="waiting-header">
+
+                <div class="waiting-title">
+
+                    <span class="waiting-symbol">◎</span>
+
+                    <strong id="waitingHeading">
+                        Belum ada penawaran
+                    </strong>
+
+                </div>
+
+                <span class="bidding-pill">
+                    BIDDING AKTIF
+                </span>
+
+            </div>
+
+            <!-- STATUS MENCARI -->
+            <div
+                class="driver-search-status"
+                id="searchStatus"
+            >
+
+                <div class="search-icon-box">
+                    <span class="search-icon">◎</span>
+                </div>
+
+                <div class="search-status-text">
+
+                    <strong>Mencari Driver EV...</strong>
+
+                    <div class="search-timer">
+
+                        <span class="timer-dot"></span>
+
+                        <span id="searchTimer">
+                            Menghubungi armada terdekat (00:00)
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- INFORMASI DRIVER YANG DIHUBUNGI -->
+            <div
+                class="driver-contact-info"
+                id="driverContactInfo"
+            >
+
+                <div class="driver-avatar-group">
+
+                    <span class="driver-avatar avatar-one">B</span>
+                    <span class="driver-avatar avatar-two">D</span>
+                    <span class="driver-avatar avatar-three">J</span>
+
+                </div>
+
+                <p>
+                    Menghubungi
+                    <strong>3 Driver EV</strong>
+                    terdekat: Pak Budi, Mas Dimas, Pak Joko.
+                </p>
+
+            </div>
+
+            <!-- ILUSTRASI PENCARIAN -->
+            <div
+                class="search-illustration"
+                id="searchIllustration"
+            >
+
+                <div class="illustration-circle">
+
+                    <span class="leaf leaf-left">✦</span>
+                    <span class="leaf leaf-right">✦</span>
+
+                    <div class="eco-face">
+
+                        <span class="face-eye eye-left"></span>
+                        <span class="face-eye eye-right"></span>
+
+                        <span class="face-cheek cheek-left"></span>
+                        <span class="face-cheek cheek-right"></span>
+
+                        <span class="face-mouth"></span>
+
+                    </div>
+
+                    <div class="magnifier">
+
+                        <div class="magnifier-lens"></div>
+                        <span class="magnifier-handle"></span>
+
+                    </div>
+
+                </div>
+
+                <p id="searchIllustrationText">
+                    Lagi nyari Driver...
+                </p>
+
+            </div>
+
+
+            <!-- DAFTAR PENAWARAN DRIVER -->
+            <div
+                id="driverOffers"
+                class="driver-offers"
+                hidden
+            >
+
+            </div>
+
+
+            <!-- DRIVER TERPILIH -->
+            <div
+                id="selectedDriver"
+                class="selected-driver-box"
+                hidden
+            >
+
+            </div>
+
+
+            <!-- PEMBAYARAN -->
+            <div class="payment-info">
+
+                <span class="payment-icon">▣</span>
+
+                <div>
+
+                    <strong>Metode Pembayaran: TUNAI (CASH)</strong>
+
+                    <p>
+                        Bayar langsung ke mitra driver setelah sampai.
+                        Tanpa saldo dompet digital dan tanpa potongan
+                        tak transparan.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- KONFIRMASI -->
+            <button
+                type="button"
+                class="confirm-booking"
+                id="confirmBooking"
+                hidden
+            >
+                ✓ Konfirmasi & Tunggu Driver Menuju Lokasi
+            </button>
+
+
+            <!-- BATALKAN -->
+            <button
+                type="button"
+                class="cancel-booking"
+                id="cancelBooking"
+            >
+                ✕ Batalkan Pesanan
+            </button>
+
+            <p class="cancel-note">
+                Driver terdekat biasanya menerima dalam waktu 1–2 menit.
+            </p>
+
+        </div>
 
     </section>
 
@@ -278,9 +447,7 @@ ob_start();
 
                 <div>
 
-                    <strong>
-                        Perlindungan Perjalanan Hijau
-                    </strong>
+                    <strong>Perlindungan Perjalanan Hijau</strong>
 
                     <p>
                         Asuransi perjalanan otomatis aktif
@@ -297,9 +464,7 @@ ob_start();
 
                 <div>
 
-                    <strong>
-                        Harga Deal & Tanpa Sengketa
-                    </strong>
+                    <strong>Harga Deal & Tanpa Sengketa</strong>
 
                     <p>
                         Driver menyetujui tawaranmu sebelum

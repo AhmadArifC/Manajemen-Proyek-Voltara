@@ -9,6 +9,10 @@
     --muted: #647168;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 .booking-shell {
     display: grid;
     grid-template-columns: minmax(370px, 40%) minmax(500px, 1fr);
@@ -33,7 +37,7 @@
 }
 
 
-/* FORM PEMESANAN */
+/* FORM LOKASI */
 
 .main-form-card {
     padding: 32px 24px 24px;
@@ -182,7 +186,7 @@
 }
 
 
-/* PILIHAN ARMADA */
+/* ARMADA */
 
 .vehicle-selection {
     padding: 24px;
@@ -260,7 +264,7 @@
 }
 
 
-/* MAP */
+/* PETA */
 
 .booking-right {
     min-width: 0;
@@ -303,7 +307,7 @@
 }
 
 
-/* INFORMASI */
+/* INFO */
 
 .info-cards {
     display: grid;
@@ -346,10 +350,7 @@
 }
 
 
-
-/* =========================================
-   KARTU PENAWARAN HARGA
-========================================= */
+/* PENAWARAN */
 
 .offer-card {
     padding: 28px 24px 24px;
@@ -454,6 +455,11 @@
     background: var(--forest);
 }
 
+.offer-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .offer-note {
     font-size: 12px;
     color: var(--muted);
@@ -462,35 +468,503 @@
 }
 
 
-/* RESPONSIVE KARTU PENAWARAN */
+/* STATUS PENCARIAN */
 
-@media (max-width: 600px) {
-
-    .offer-card {
-        padding: 18px;
-    }
-
-    .offer-header {
-        align-items: flex-start;
-    }
-
-    .offer-box {
-        padding: 12px 8px;
-        gap: 8px;
-    }
-
-    .price-adjust {
-        width: 42px;
-        height: 42px;
-        min-width: 42px;
-    }
-
-    .price-display strong {
-        font-size: 25px;
-    }
-
+.waiting-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
+.waiting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.waiting-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+}
+
+.waiting-title strong {
+    font-size: 16px;
+}
+
+.waiting-symbol {
+    color: var(--forest);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bidding-pill {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--forest);
+    background: var(--mint);
+    padding: 5px 9px;
+    border-radius: 20px;
+}
+
+
+/* STATUS MENCARI */
+
+.driver-search-status {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: #f6faf4;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.search-icon-box {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    background: var(--deep);
+    color: var(--lime);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+}
+
+.search-icon {
+    font-size: 26px;
+    animation: searchPulse 1.2s infinite;
+}
+
+.search-status-text {
+    min-width: 0;
+}
+
+.search-status-text > strong {
+    display: block;
+    color: var(--forest);
+    font-size: 17px;
+}
+
+.search-timer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.timer-dot {
+    width: 7px;
+    height: 7px;
+    background: #789000;
+    border-radius: 50%;
+    animation: searchPulse 1.2s infinite;
+}
+
+
+/* DRIVER YANG DIHUBUNGI */
+
+.driver-contact-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #eef3ed;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.driver-avatar-group {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.driver-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    border: 2px solid white;
+    margin-left: -5px;
+}
+
+.driver-avatar:first-child {
+    margin-left: 0;
+}
+
+.avatar-one {
+    background: #164e3b;
+}
+
+.avatar-two {
+    background: #667900;
+}
+
+.avatar-three {
+    background: #87938b;
+}
+
+.driver-contact-info p {
+    font-size: 11px;
+    color: #455149;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* ILUSTRASI PENCARIAN */
+
+.search-illustration {
+    background: #f1f5ec;
+    border-radius: 14px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.illustration-circle {
+    width: 190px;
+    height: 190px;
+    position: relative;
+    border-radius: 50%;
+    background: #557400;
+    display: grid;
+    place-items: center;
+}
+
+.eco-face {
+    width: 140px;
+    height: 140px;
+    background: var(--lime);
+    border-radius: 48% 48% 45% 45%;
+    position: relative;
+    transform: rotate(-8deg);
+}
+
+.face-eye {
+    position: absolute;
+    top: 48px;
+    width: 13px;
+    height: 13px;
+    background: #164e3b;
+    border-radius: 50%;
+}
+
+.eye-left {
+    left: 36px;
+}
+
+.eye-right {
+    right: 36px;
+}
+
+.face-cheek {
+    position: absolute;
+    top: 70px;
+    width: 17px;
+    height: 10px;
+    background: #91d58b;
+    border-radius: 50%;
+}
+
+.cheek-left {
+    left: 15px;
+}
+
+.cheek-right {
+    right: 15px;
+}
+
+.face-mouth {
+    position: absolute;
+    left: 50px;
+    top: 75px;
+    width: 40px;
+    height: 22px;
+    border-bottom: 4px solid #164e3b;
+    border-radius: 50%;
+}
+
+.magnifier {
+    position: absolute;
+    left: -12px;
+    top: 78px;
+    width: 90px;
+    height: 90px;
+    z-index: 2;
+    transform: rotate(-35deg);
+}
+
+.magnifier-lens {
+    width: 74px;
+    height: 74px;
+    border: 9px solid #ffb17c;
+    background: #b5eed0a0;
+    border-radius: 50%;
+}
+
+.magnifier-handle {
+    position: absolute;
+    width: 16px;
+    height: 38px;
+    background: #ffb17c;
+    border-radius: 12px;
+    left: 29px;
+    top: 65px;
+}
+
+.leaf {
+    position: absolute;
+    color: var(--lime);
+    font-size: 24px;
+}
+
+.leaf-left {
+    left: -25px;
+    top: 10px;
+}
+
+.leaf-right {
+    right: -20px;
+    top: 5px;
+}
+
+.search-illustration p {
+    font-size: 13px;
+    color: #455149;
+    margin: 15px 0 0;
+}
+
+@keyframes searchPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.15);
+    }
+}
+
+
+/* DAFTAR DRIVER */
+
+.driver-offers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.driver-offer-item {
+    background: #f1f5ec;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.driver-offer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.driver-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.driver-photo-placeholder {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    background: var(--forest);
+    color: var(--lime);
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.driver-profile-info {
+    min-width: 0;
+}
+
+.driver-profile-info strong {
+    font-size: 13px;
+    color: var(--ink);
+}
+
+.driver-rating {
+    display: inline-block;
+    font-size: 10px;
+    color: #46544b;
+    background: #dfe7dc;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-left: 3px;
+}
+
+.driver-details {
+    font-size: 11px;
+    color: #536159;
+    line-height: 1.5;
+    margin-top: 3px;
+}
+
+.driver-price-area {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.driver-price-area small {
+    display: block;
+    font-size: 9px;
+    font-weight: 700;
+    color: #536159;
+}
+
+.driver-price-area strong {
+    font-size: 19px;
+    color: var(--deep);
+    white-space: nowrap;
+}
+
+.choose-driver-btn {
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    padding: 9px;
+    margin-top: 10px;
+    background: var(--forest);
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.choose-driver-btn:hover {
+    background: var(--deep);
+}
+
+.choose-driver-btn.selected {
+    background: var(--lime);
+    color: var(--deep);
+    font-weight: 700;
+}
+
+
+/* DRIVER TERPILIH */
+
+.selected-driver-box {
+    padding: 12px;
+    background: #e5f5e7;
+    border-radius: 10px;
+    border: 1px solid #b5eed0;
+}
+
+.selected-driver-message {
+    font-size: 13px;
+    color: var(--deep);
+    font-weight: 600;
+}
+
+
+/* PEMBAYARAN */
+
+.payment-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #e5eadf;
+    padding: 14px;
+    border-radius: 12px;
+}
+
+.payment-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    background: var(--deep);
+    color: var(--lime);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.payment-info strong {
+    display: block;
+    font-size: 11px;
+    color: var(--ink);
+}
+
+.payment-info p {
+    font-size: 11px;
+    line-height: 1.6;
+    color: #536159;
+    margin: 4px 0 0;
+}
+
+
+/* KONFIRMASI */
+
+.confirm-booking {
+    width: 100%;
+    border: 0;
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--lime);
+    color: var(--deep);
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px #163d2015;
+}
+
+.confirm-booking:hover {
+    filter: brightness(0.96);
+}
+
+
+/* BATAL */
+
+.cancel-booking {
+    width: 100%;
+    border: 0;
+    padding: 12px;
+    border-radius: 10px;
+    background: #ffe8e6;
+    color: #d41414;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cancel-booking:hover {
+    background: #ffd6d3;
+}
+
+.cancel-note {
+    text-align: center;
+    font-size: 11px;
+    color: #536159;
+    margin: -6px 0 0;
+}
 
 
 /* RESPONSIVE */
@@ -560,4 +1034,46 @@
     .info-cards {
         grid-template-columns: 1fr;
     }
+
+    .offer-card {
+        padding: 18px;
+    }
+
+    .offer-header {
+        align-items: flex-start;
+    }
+
+    .offer-box {
+        padding: 12px 8px;
+        gap: 8px;
+    }
+
+    .price-adjust {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+    }
+
+    .price-display strong {
+        font-size: 25px;
+    }
+
+    .waiting-card {
+        padding: 14px;
+    }
+
+    .driver-offer-top {
+        align-items: flex-start;
+    }
+
+    .driver-price-area strong {
+        font-size: 16px;
+    }
+
+    .driver-photo-placeholder {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
 }
